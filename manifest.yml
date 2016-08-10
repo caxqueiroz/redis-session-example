@@ -1,0 +1,13 @@
+---
+timeout: 60
+instances: 1
+memory: 1G
+#buildpack: java_buildpack_offline
+env:
+    SPRING_PROFILES_ACTIVE: cloud
+    JAVA_OPTS: -Djava.security.egd=file:///dev/urandom
+
+applications:
+- name: redis-session-example
+  path: target/redis-session-0.0.1-SNAPSHOT.jar
+  services: [redis-session-replication]
